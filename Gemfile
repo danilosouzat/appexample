@@ -50,6 +50,9 @@ group :doc do
 end
 
  ruby '1.9.3'
+
+gem 'puma', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
