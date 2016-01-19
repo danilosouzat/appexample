@@ -51,8 +51,7 @@ end
 
  ruby '1.9.3'
 
-gem 'puma', group: :development
-
+gem 'puma', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
