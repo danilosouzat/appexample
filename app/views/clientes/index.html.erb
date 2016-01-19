@@ -1,0 +1,77 @@
+<%- model_class = Cliente -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+     <tr>
+        <!--<th><%#= model_class.human_attribute_name(:id) %></th>-->
+        <th><%= model_class.human_attribute_name(:loja) %></th>
+        <th><%= model_class.human_attribute_name(:nome) %></th>
+        <th><%= model_class.human_attribute_name(:email) %></th>
+        <th><%= model_class.human_attribute_name(:cpf) %></th>
+        <th><%= model_class.human_attribute_name(:obs) %></th>
+        <th><%= model_class.human_attribute_name(:aniversario) %></th>
+        <th><%= model_class.human_attribute_name(:telefone) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+     </tr>
+   </thead>
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <!--<td><%#= link_to cliente.loja, cliente_path(cliente) %></td>-->
+
+     <!--<#% if cliente.loja_id.blank? != true%>
+          <td><%#= Loja.find(cliente.loja_id).nome %></td>
+          <%#else%>
+          <td><%=cliente.loja_id %></td>
+          <%#end%>
+      -->
+
+        <td><%= cliente.valida_campo_loja %></td>
+
+
+        <td><%=first_latter_uppercase(cliente.nome).join(' ')%></td>
+
+        <td><%= cliente.email %></td>
+
+        <%if cliente.cpf != "" or nil%>
+        <td><%= formata_cpf(cliente.cpf) %></td>
+        <%else%>
+        <td><%= cliente.cpf %></td>
+        <%end%>
+
+        <td><%= cliente.valida_campo_obs %></td>
+
+        <td><%= cliente.aniversario %></td>
+
+        <%if cliente.telefone != "" or nil%>
+        <td><%= formata_NumeroTelefone(cliente.telefone) %></td>
+        <%else%>
+        <td><%= cliente.telefone %></td>
+        <%end%>
+
+        <td>
+
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      cliente_path(cliente), :class => 'btn btn-default btn-xs',  :class =>"label label-success"%>
+
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_cliente_path(cliente), :class => 'btn btn-default btn-xs' %>
+
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      cliente_path(cliente),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @posts %>
+<br>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cliente_path,
+            :class => 'btn btn-primary' %>
