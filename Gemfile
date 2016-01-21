@@ -49,7 +49,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
- ruby '1.9.3'
+ruby '1.9.3'
 
 #gem 'puma', group: :production
 gem 'unicorn', group: :production
