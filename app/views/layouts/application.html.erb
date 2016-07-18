@@ -49,9 +49,23 @@
         <a class="navbar-brand" href="clientes">Clientes</a> -->
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to "Início", root_path  %></li>
+            <li><%= link_to "Usuarios", usuarios_index_path  %></li>
             <li><%= link_to "Lojas", lojas_path  %></li>
-            <li><%= link_to "Cleintes", clientes_path  %></li>
+            <li><%= link_to "Clientes", clientes_path  %></li>
+            
+
+            <% if usuario_signed_in? %>
+                <li><%= link_to "Sair", destroy_usuario_session_path, method: :delete  %></li>
+                
+            <% else %>
+                <li><%= link_to "Logar", new_usuario_session_path  %></li>
+                <li><%= link_to "Cadastrar um novo usuário", new_usuario_registration_path  %></li>
+            <% end %>
           </ul>
+           <% if usuario_signed_in? %>
+           <h5 align="right"><b> Logado como: </b> <%= current_usuario.email%> </h5>
+          <% end %> 
         </div>
       </div>
     </div>

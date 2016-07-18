@@ -16,7 +16,7 @@ module ClientesHelper
 	      	 num_formatado <<  ")"
 	      	 num_formatado << " "
 	      	 num_formatado << numero[0..3]
-	      	 num_formatado <<"-"
+	      	 num_formatado << "-"
 	      	 num_formatado << numero[4..7]
 	      	 num_formatado
 	      else

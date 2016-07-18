@@ -1,0 +1,21 @@
+<%- model_class = Usuario -%>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+     
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:Login) %></th>
+      <th><%= model_class.human_attribute_name(:Status) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |usu| %>
+      <tr>
+        <td><%= usu.email %></td>
+        <td><%= usu.role %></td>	       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

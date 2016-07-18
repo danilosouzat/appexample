@@ -37,3 +37,24 @@ production:
   username: root
   password: danilo2304
   socket: /var/run/mysqld/mysqld.sock
+
+
+development_qa:
+  adapter: postgresql
+  host: qa.ultimatum.com.br
+  port: 5432
+  username: postgres
+  password: masterkey
+  database: nexus_staging
+  pool: 5
+  timeout: 5000
+#psql -U postgres -h qa.ultimatum.com.br -d nexus_staging -W
+
+development_oabonlane:
+  adapter: postgresql
+  encoding: unicode
+  database: unique_dev
+  pool: 5
+  username: unique_dev
+  host: 45.55.163.9
+  password: 'uniquepg098'

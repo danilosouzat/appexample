@@ -1,11 +1,18 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   before_action :set_lojas, only: [:new, :update, :create, :edit]
+  before_action :authenticate_usuario!
+
 
   # GET /clientes
   # GET /clientes.json
   def index
+    if params[:search]
+    @clientes = Cliente.where("nome like ?", "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 10)
+    else
     @clientes = Cliente.all.paginate(:page => params[:page], :per_page => 10)
+  end
+  #authorize @clientes
   end
 
   # GET /clientes/1

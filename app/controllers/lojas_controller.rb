@@ -1,10 +1,15 @@
 class LojasController < ApplicationController
   before_action :set_loja, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /lojas
   # GET /lojas.json
   def index
+     if params[:search]
+       @lojas = Loja.where("nome like ?", "%#{params[:search]}%")
+     else
     @lojas = Loja.all
+  end
   end
 
   # GET /lojas/1

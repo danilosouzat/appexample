@@ -71,13 +71,11 @@
   </div>
 
   <div class="form-group">
-
      <%=f.label :loja_id, :class => 'control-label col-lg-2' %>
      <div class="col-lg-8">  
       <%=f.collection_select(:loja_id, @lojas, :id, :nome, include_blank: true, :class => 'form-control')%>
       </div>
   </div>
-
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

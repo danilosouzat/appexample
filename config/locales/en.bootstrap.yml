@@ -8,7 +8,7 @@ pt-BR:
     pages:
       pages: "Páginas"
   helpers:
-    actions: "Ações"
+    actions: "Opções"
     links:
       back: "Voltar"
       cancel: "Cancelar"

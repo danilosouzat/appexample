@@ -1,5 +1,7 @@
 Appexample::Application.routes.draw do
   
+  get "usuarios/index"
+  devise_for :usuarios
   resources :lojas
 
   root 'welcome#index'

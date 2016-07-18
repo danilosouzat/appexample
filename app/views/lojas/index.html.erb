@@ -1,6 +1,12 @@
 <%- model_class = Loja -%>
-<div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+     <div class="search">
+        <%= form_tag(lojas_path, :method => :get) do %>
+           <%= text_field_tag 'search', nil, placeholder: 'Digite o nome para pesquisar' %>
+           <%= submit_tag "search" %>
+        <% end %>
+        </div>
+     </div>
 </div>
 <table class="table table-striped">
   <thead>

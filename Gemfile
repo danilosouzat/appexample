@@ -1,7 +1,17 @@
 source 'https://rubygems.org'
 
+gem 'pundit'
+
+gem 'devise'
+
+gem 'devise-i18n'
+
+gem 'devise-bootstrap-views'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.0.2'
+#gem 'rails', '~> 4.0.2'
+gem 'rails', :git => 'git://github.com/rails/rails.git', :tag => 'v4.1.0.beta1'
+
 
 # Use mysql as the database for Active Record
 #gem 'mysql2'
